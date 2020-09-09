@@ -1,0 +1,48 @@
+<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w780">
+        <div class="card card-3">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h1 class="title">Create Room</h1>
+                <form action="/room/createroom" method="POST">
+                    <div class="input-group">
+                        <Label for="title">Room Title</Label>
+                        <input class="input--style-3" type="text" id="title" placeholder="" name="title" required>
+                    </div>
+                    <div class="input-group">
+                        <Label for="description">Room Description </Label>
+                        <input class="input--style-3" type="text" id="description" placeholder="" name="description"
+                            required>
+                    </div>
+                    <div class="input-group">
+                        <Label for="limit">Room Limit</Label>
+                        <input class="input--style-3" type="number" step="1" id="limit" placeholder="" name="limit">
+                    </div>
+                    <div class="p-t-10">
+                        <button class="btn btn--pill btn--green" type="submit">Submit</button>
+
+                    </div>
+                </form>
+                <form action="/" method="GET">
+                    <button class="btn btn-custom btn--pill btn--green" type="submit">Go to Dashboard</button>
+                </form>
+                <div class="p-t-30 c-white">
+                    {{#if message}}
+                    <p>{{this.message}}</p>
+                    {{/if}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jquery JS-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<!-- Vendor JS-->
+<script src="vendor/select2/select2.min.js"></script>
+<script src="vendor/datepicker/moment.min.js"></script>
+<script src="vendor/datepicker/daterangepicker.js"></script>
+
+<!-- Main JS-->
+<script src="js/global.js"></script>

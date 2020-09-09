@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+
+html,body{
+height: 100%;
+width: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+width: 100%;
+background-size: cover;
+background-repeat: no-repeat;
+/*background-image: url('/public/dance-background-images-45.png');*/
+
+}
+
+.container-3{
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/public/dance-background-images-45.png');
+  
+}
+
+.middlepane{
+  width: 50%;
+
+  height: available;
+  margin-left: 300px;
+  float: left;
+  background-color: royalblue;
+  border-collapse: collapse;
+}
+
+.chat-room{
+  width: 50% !important;
+  float: center !important;
+}
+.form-group p{
+color: hotpink;
+}
+.card{
+height: 370px;
+margin-top: 70px;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(14, 20, 14, 0.733) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.image-home{
+  content:url("/public/594bce73dfb4c87a381aae1d_simple-logo-high-res\ \(1\).png");
+ 
+  background:rgb(243, 241, 241);
+  background-size: cover;
+  margin-top: 200px;
+  
+}
+
+.nav-link :active{
+  color: red;
+}
+.btn--green{
+  background-color: #278900 !important;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+h1{
+  fill-opacity:30%;
+  margin-top: 10px;
+  font-family: 'Varela';
+  color:white !important;
+  text-align: center;
+}
+
+
+.input-group-prepend span{
+
+background-color: rgba(77, 16, 219, 0.733);
+color:white;
+border:0;
+width: 50px;
+}
+.input-group-prepend{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: white;
+background-color: rgba(77, 16, 219, 0.733);
+border:rgba(77, 16, 219, 0.733);
+border-style: round;
+width: 100px;
+margin-top: 15%;
+margin-left: 35%;
+}
+
+
+.login_btn:hover{
+color:black;
+background-color: white;
+}
+
+.links{
+color:white;
+}
+
+.links a{
+margin-left: 4px;
+color:gold
+}

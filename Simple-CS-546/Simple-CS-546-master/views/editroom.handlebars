@@ -1,0 +1,106 @@
+<script src="/public/levels.js"></script>
+
+<div class="a2 page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w780">
+        <div class="card card-3">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h1 class="title">Edit room</h1>
+                <h2>Edit room details:</h2>
+                <div class="p-t-30">
+                    {{#if message}}
+                    <p class="c-blue">{{ this.message }}</p>
+                    {{/if}}
+                </div>
+                <form class="a1" action="/room/updateroom" method="POST">
+                    <div class="input-group">
+                        <Label for="title">Title</Label>
+                        <input class="input--style-3" type="text" id="title" placeholder="" name="title">
+                    </div>
+                    <div class="input-group">
+                        <Label for="description">Description</Label>
+                        <input class="input--style-3" type="text" id="description" placeholder="" name="description">
+                    </div>
+                    <div class="input-group">
+                        <Label for="limit">Room Limit</Label>
+                        <input class="input--style-3" type="number" step="1" id="limit" placeholder="" name="limit">
+                    </div>
+                    <div class="p-t-10">
+
+                        <button class="btn btn--pill btn--green" type="submit">Submit</button>
+
+                    </div>
+                </form>
+
+                <div class="p-t-30">
+                    {{#if message2}}
+                    <p class="c-blue">{{ this.message2 }}</p>
+                    {{/if}}
+                    {{#if message3}}
+                    <p class="c-blue">{{ this.message3 }}</p>
+                    {{/if}}
+                </div>
+                <p class="p-t-30"></p>
+                <h3>Change access levels</h3>
+                <p>Select if you want to promote or demote:</p>
+                <form class="a1" action="/room/levels" method="POST">
+                    <ul>
+                        {{#each lowerLevels}}
+                        <li>
+                            <label for="action">{{this.username}} </label>
+                            <select name="action">
+                                <option value="" selected>Do nothing</option>
+                                <option value="{{this.userId}},1,{{this.flairLevel}}">promote</option>
+                                <option value="{{this.userId}},0,{{this.flairLevel}}">demote</option>
+                            </select>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <div class="p-t-10">
+
+                        <button class="btn btn--pill btn--green" type="submit">Submit</button>
+
+                    </div>
+                </form>
+
+
+                <p class="p-t-30"></p>
+                <h3>Kick Users</h3>
+                <p>Select users you want to kick:</p>
+                <form class="a1" action="/room/remove" method="POST">
+                    <ul>
+                        {{#each lowerLevels}}
+                        <li>
+                            <label for="action">{{this.username}} </label>
+                            <select name="action">
+                                <option value="" selected>Do nothing</option>
+                                <option value="{{this.userId}}">kick</option>
+
+                            </select>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <div class="p-t-10">
+
+                        <button class="btn btn--pill btn--green" type="submit">Submit</button>
+
+                    </div>
+                </form>
+                <div class="p-t-30">
+                    <a class="c-blue" href="/room/{{roomid}}">Go back to Room</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jquery JS-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<!-- Vendor JS-->
+<script src="vendor/select2/select2.min.js"></script>
+<script src="vendor/datepicker/moment.min.js"></script>
+<script src="vendor/datepicker/daterangepicker.js"></script>
+
+<!-- Main JS-->

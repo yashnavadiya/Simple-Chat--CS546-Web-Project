@@ -1,0 +1,38 @@
+<div class="a2 page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w780">
+        <div class="card card-3">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h1 class="title">Join Room</h1>
+                <form class="a1" action="/room/joinRoom" id="invite-form" method="POST">
+                    <div class="input-group">
+                        <Label for="invitecode">Invite Code</Label>
+                        <input class="input--style-3" type="text" id="invitecode" placeholder="" name="invitecode">
+                    </div>
+                    <div class="p-t-10">
+
+                        <button class="btn btn--pill btn--green" type="submit">Join</button>
+
+                        <p class="p-t-30"><a class="c-blue" href="/">Go back to dashboard</a></p>
+                    </div>
+                </form>
+                <div class="p-t-30 c-blue">
+                    {{#if message}}
+                    <p>{{this.message}}</p>
+                    {{/if}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jquery JS-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<!-- Vendor JS-->
+<script src="vendor/select2/select2.min.js"></script>
+<script src="vendor/datepicker/moment.min.js"></script>
+<script src="vendor/datepicker/daterangepicker.js"></script>
+
+<!-- Main JS-->
+<script src="js/global.js"></script>

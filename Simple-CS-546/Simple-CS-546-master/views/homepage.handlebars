@@ -1,0 +1,119 @@
+<!-- THE ORGINAL TEMPLATE FROM GRAYSHIFT.IO, AND THEN MODIFIED ACCORDING TO OUR NEEDS -->
+
+
+<div class="d-flex flex-column flex-lg-row">
+  <h1></h1>
+  <h2></h2>
+  <div class="sidebar sidebar-expand-lg order-1 order-lg-0">
+    <div class="container py-5 px-lg-5">
+
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="channels" role="tabpanel">
+          <ul class="nav nav-tabs nav-justified nav-sm mt-3" role="tablist" aria-orientation="horizontal">
+            <li class="nav-item">
+              <a class="nav-link active " href="/logout">
+                <p class="custom-nav-link">Logout</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/user/changepswd">
+                <p class="custom-nav-link">Edit Password</p>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-tabs nav-justified nav-sm mt-3" role="tablist" aria-orientation="horizontal">
+            <li class="nav-item">
+              <a class="nav-link" href="/room/joinRoom"> Join Room</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/room/createroom"> Create Room </a>
+            </li>
+          </ul>
+
+
+
+          <div class="d-flex align-items-center mt-5">
+
+            <h3>RoomList</h3>
+          </div>
+          <hr class="mb-0">
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="direct" role="tabpanel">
+              {{#each roomsList}}
+              <a class="m1" href="/room/{{this.roomId}}">
+                <div class="channel">
+                  <span class="avatar avatar-sm status  mr-3 bg-success rounded-circle"></span>
+                  <div class="flex-grow-1">
+                    <div class="d-flex align-items-center mb-3">
+                      <p class="mr-auto">
+                        {{this.roomName}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <main class="flex-lg-grow-1">
+    <div class="chat chat-offcanvas open">
+      <div class="d-flex">
+        <div class="flex-grow-1">
+          <div class=" image-home container px-lg-5">
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+<!--Our main socket io new code, error check it -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+  integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/eva-icons@1.1.2/eva.min.js"
+  integrity="sha384-evc6xuruZOLSxcDYJOMhN4pnuWv2x1hHaVU9m0os+cvprT9Gg1sgClT+EM4n/ng9" crossorigin="anonymous"></script>
+<script src="dist/js/offcanvas.min.js"></script>
+<script>
+  eva.replace()
+</script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(function () {
+    var email = "{{usermail}}";
+    var roomId = "{{roomId}}"
+
+    var socket = io();
+    $('form').submit(function (e) {
+      e.preventDefault(); // prevents page reloading
+
+      // makes call to backend socket.io
+      socket.emit('chat message', { msg: $('#m').val(), email: email, roomId: roomId });
+
+      // reseting value in textarea to emptry
+      $('#m').val('');
+      return false;
+    });
+
+    socket.on('chat message', function (msg) {
+      $('#messages').append($('<p class="w3-ul w3-large w3-animate-left"></p>').text(msg));
+    });
+  });
+</script>
+<script>
+  var socket = io();
+</script>
+<script src="../public/modal.js"></script>
